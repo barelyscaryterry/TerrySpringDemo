@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          ''
+      )}">
+<head>
+    <title>Hardware Products - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/products.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Hardware Products</h1>
+            <p>Explore our hardware product offerings.</p>
+            
+            <div class="product-list">
+                <div class="product-item">
+                    <h2>Server Hardware</h2>
+                    <p>High-performance server solutions for enterprise applications.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h2>Network Equipment</h2>
+                    <p>Reliable networking hardware for business environments.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h2>Storage Solutions</h2>
+                    <p>Scalable storage options for all your data needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>

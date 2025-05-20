@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          'home'
+      )}">
+<head>
+    <title>Hello - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/hello.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Hello Page</h1>
+            <p>This is the hello page of our Spring Boot application.</p>
+            
+            <div class="message-box">
+                <h2>Message from Server:</h2>
+                <p th:text="${message}">Default message</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>

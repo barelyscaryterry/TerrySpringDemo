@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script}
+      )}">
+<head>
+    <title>About - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>About TerrySpringDemo</h1>
+            <p>This is the about page of our Spring Boot application.</p>
+            
+            <div>
+                <h2>Project Information</h2>
+                <p>TerrySpringDemo is a demonstration project showcasing various Spring Boot features:</p>
+                <ul>
+                    <li>Spring MVC architecture</li>
+                    <li>Thymeleaf templating</li>
+                    <li>Fragment-based component design</li>
+                    <li>Responsive navigation</li>
+                    <li>Clean separation of concerns</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>

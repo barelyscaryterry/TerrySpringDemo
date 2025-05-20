@@ -1,0 +1,127 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.order-detail {
+    margin-top: 2rem;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-header h2 {
+    margin: 0;
+    color: #3498db;
+}
+
+.order-status {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+.order-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.info-group {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1rem;
+}
+
+.info-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #7f8c8d;
+}
+
+.order-items {
+    margin-bottom: 2rem;
+}
+
+.order-items h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+.total-label {
+    text-align: right;
+}
+
+.total-value {
+    color: #2c3e50;
+}
+
+.order-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-back {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-back:hover {
+    background-color: #2980b9;
+}
+
+.not-found {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}

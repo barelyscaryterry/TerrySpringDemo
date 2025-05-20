@@ -1,0 +1,29 @@
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+.message-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.message-box h2 {
+    margin-top: 0;
+    color: #3498db;
+}
+
+.message-box p {
+    font-size: 1.2rem;
+}

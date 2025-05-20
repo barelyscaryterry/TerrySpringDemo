@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          ''
+      )}">
+<head>
+    <title>Software Products - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/products.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Software Products</h1>
+            <p>Explore our software product offerings.</p>
+            
+            <div class="product-list">
+                <div class="product-item">
+                    <h2>Spring Boot Starter</h2>
+                    <p>A comprehensive starter kit for Spring Boot applications.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h2>Web Framework</h2>
+                    <p>A lightweight web framework for modern applications.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h2>Database Manager</h2>
+                    <p>Powerful database management solution.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>

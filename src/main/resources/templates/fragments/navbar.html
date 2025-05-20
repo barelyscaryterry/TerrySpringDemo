@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- This fragment doesn't need its own head, it will be included in other templates -->
+</head>
+<body>
+    <!-- Navigation Bar Fragment -->
+    <nav th:fragment="navbar(activeTab)" class="navbar">
+        <div class="navbar-container">
+            <!-- Brand/logo -->
+            <a href="/" class="navbar-brand">TerrySpringDemo</a>
+            
+            <!-- Tabs - easily updatable -->
+            <ul class="navbar-tabs">
+                <li><a href="/" th:class="${activeTab == 'home'} ? 'active' : ''">Home</a></li>
+                <li><a href="/contact" th:class="${activeTab == 'contact'} ? 'active' : ''">Contact</a></li>
+                <li><a href="/orders" th:class="${activeTab == 'orders'} ? 'active' : ''">Orders</a></li>
+            </ul>
+            
+            <!-- Hamburger menu for mobile -->
+            <div class="hamburger-menu">
+                <i class="fas fa-bars">☰</i>
+            </div>
+            
+            <!-- Dropdown menu with 2 tiers -->
+            <div class="dropdown-menu">
+                <a href="/" class="dropdown-item">Home</a>
+                <a href="/contact" class="dropdown-item">Contact</a>
+                <a href="/orders" class="dropdown-item">Orders</a>
+                
+                <!-- First tier dropdown item with submenu -->
+                <div class="dropdown-item has-submenu">
+                    Products
+                    <div class="submenu">
+                        <a href="/products/software" class="dropdown-item">Software</a>
+                        <a href="/products/hardware" class="dropdown-item">Hardware</a>
+                        
+                        <!-- Second tier dropdown -->
+                        <div class="dropdown-item has-submenu">
+                            Services
+                            <div class="submenu">
+                                <a href="/services/consulting" class="dropdown-item">Consulting</a>
+                                <a href="/services/support" class="dropdown-item">Support</a>
+                                <a href="/services/training" class="dropdown-item">Training</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Another first tier dropdown item with submenu -->
+                <div class="dropdown-item has-submenu">
+                    Resources
+                    <div class="submenu">
+                        <a href="/resources/docs" class="dropdown-item">Documentation</a>
+                        <a href="/resources/tutorials" class="dropdown-item">Tutorials</a>
+                        <a href="/resources/downloads" class="dropdown-item">Downloads</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

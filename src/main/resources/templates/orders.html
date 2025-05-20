@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          'orders'
+      )}">
+<head>
+    <title>Orders - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/orders.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Orders</h1>
+            <p>View and manage your orders.</p>
+            
+            <div class="orders-list" th:if="${orders != null && !orders.empty}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="order : ${orders}">
+                            <td th:text="${order.id}">123</td>
+                            <td th:text="${#temporals.format(order.date, 'yyyy-MM-dd')}">2025-05-19</td>
+                            <td th:text="${order.customerName}">John Doe</td>
+                            <td th:text="${'$' + order.total}">$99.99</td>
+                            <td th:text="${order.status}">Shipped</td>
+                            <td>
+                                <a th:href="@{/orders/{id}(id=${order.id})}" class="btn btn-view">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="no-orders" th:if="${orders == null || orders.empty}">
+                <p>No orders found. Place an order to see it here.</p>
+                <a href="/products/software" class="btn btn-primary">Browse Products</a>
+            </div>
+            
+            <div class="order-form">
+                <h2>Create New Order</h2>
+                <form th:action="@{/orders}" method="post">
+                    <div class="form-group">
+                        <label for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productName">Product</label>
+                        <select id="productName" name="productName" required>
+                            <option value="">Select a product</option>
+                            <option value="Spring Boot Starter">Spring Boot Starter</option>
+                            <option value="Web Framework">Web Framework</option>
+                            <option value="Database Manager">Database Manager</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Form validation and dynamic calculations could go here
+    </script>
+</body>
+</html>

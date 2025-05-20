@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, css, content, js, activeTab)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Default Title</title>
+    
+    <!-- Common CSS -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    
+    <!-- Page specific CSS -->
+    <th:block th:replace="${css} ?: ~{}"></th:block>
+</head>
+<body>
+    <!-- Include the navigation bar fragment -->
+    <div th:replace="~{fragments/navbar :: navbar(${activeTab})}"></div>
+    
+    <!-- Main content -->
+    <main>
+        <div th:replace="${content}">
+            <!-- Default content will be replaced -->
+            <p>Default content</p>
+        </div>
+    </main>
+    
+    <!-- Common JavaScript -->
+    <script th:src="@{/js/navbar.js}"></script>
+    
+    <!-- Page specific JavaScript -->
+    <th:block th:replace="${js} ?: ~{}"></th:block>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          'home'
+      )}">
+<head>
+    <title>Home - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Welcome to TerrySpringDemo</h1>
+            <p>This is a Spring Boot application created for demonstration purposes.</p>
+            
+            <div class="links">
+                <h2>Available Endpoints:</h2>
+                <a href="/hello">Hello Endpoint</a>
+                <a href="/">Home (this page)</a>
+            </div>
+            
+            <div>
+                <h2>About This Project</h2>
+                <p>This project demonstrates a simple Spring Boot application with:</p>
+                <ul>
+                    <li>Spring DevTools for automatic restarts</li>
+                    <li>Lombok for reducing boilerplate code</li>
+                    <li>JUnit for testing</li>
+                    <li>RESTful endpoints</li>
+                    <li>Thymeleaf templating with fragments</li>
+                    <li>Responsive navigation bar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>

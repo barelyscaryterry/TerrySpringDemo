@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{layouts/default :: layout(
+          ~{::title},
+          ~{::link},
+          ~{::#content},
+          ~{::script},
+          'orders'
+      )}">
+<head>
+    <title>Order Details - TerrySpringDemo</title>
+    <link rel="stylesheet" th:href="@{/css/order-detail.css}">
+</head>
+<body>
+    <div id="content">
+        <div class="container">
+            <h1>Order Details</h1>
+            
+            <div class="order-detail" th:if="${order != null}">
+                <div class="order-header">
+                    <h2>Order #<span th:text="${order.id}">123</span></h2>
+                    <span class="order-status" th:text="${order.status}">Pending</span>
+                </div>
+                
+                <div class="order-info">
+                    <div class="info-group">
+                        <label>Customer:</label>
+                        <span th:text="${order.customerName}">John Doe</span>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label>Date:</label>
+                        <span th:text="${#temporals.format(order.date, 'yyyy-MM-dd')}">2025-05-19</span>
+                    </div>
+                </div>
+                
+                <div class="order-items">
+                    <h3>Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td th:text="${order.productName}">Spring Boot Starter</td>
+                                <td th:text="${order.quantity}">2</td>
+                                <td th:text="${'$' + #numbers.formatDecimal(order.total / order.quantity, 1, 2)}">$49.99</td>
+                                <td th:text="${'$' + #numbers.formatDecimal(order.total, 1, 2)}">$99.98</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="total-label">Total:</td>
+                                <td class="total-value" th:text="${'$' + #numbers.formatDecimal(order.total, 1, 2)}">$99.98</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <div class="order-actions">
+                    <a href="/orders" class="btn btn-back">Back to Orders</a>
+                </div>
+            </div>
+            
+            <div class="not-found" th:if="${order == null}">
+                <p>Order not found.</p>
+                <a href="/orders" class="btn btn-back">Back to Orders</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Any page-specific JavaScript can go here
+    </script>
+</body>
+</html>
